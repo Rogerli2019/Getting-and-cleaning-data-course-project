@@ -66,10 +66,10 @@ setname <- gsub("BodyBody", "Body", setname)
 colnames(set) <- setname
 
 ## Create first merged tidy data 
-write.table(set, "merged_data_1.txt")
+write.table(set, "merged_data_1.txt",row.names = FALSE)
 
 ## 5.Create second clean tidy data set
 setwithmean <- set %>% group_by(subjectId, activityId) %>%summarise_each(funs(mean))
 setwithmean <- setwithmean[order(setwithmean$subjectId,setwithmean$activityId),]
 
-write.table(setwithmean, "Mean_data_2.txt")
+write.table(setwithmean, "Mean_data_2.txt",row.names = FALSE)
